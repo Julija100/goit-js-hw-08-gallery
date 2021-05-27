@@ -110,6 +110,7 @@ ulElements.addEventListener("click", ulContainerClick);
 
 const closeModal = () => {
   document.querySelector(".lightbox").classList.remove("is-open");
+  document.querySelector(".lightbox__image").src = "";
 };
 
 const closeBtn = document.querySelector('[data-action="close-lightbox"]');
