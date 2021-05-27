@@ -83,7 +83,6 @@ const resultHtml = pictures.map(({ preview, original, description }) => {
  </li>
   `;
 });
-console.log(resultHtml);
 
 ulElements.insertAdjacentHTML("beforeend", resultHtml.join(""));
 
