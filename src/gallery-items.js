@@ -106,4 +106,15 @@ const ulContainerClick = (event) => {
 
 ulElements.addEventListener("click", ulContainerClick);
 
-//Закрытие модального окна по клику на кнопку button[data-action="close-lightbox"].
+//Закрытие модального окна по клику на кнопку button[data-action="close-lightbox"].//
+
+const closeModal = () => {
+  document.querySelector(".lightbox").classList.remove("is-open");
+};
+
+const closeBtn = document.querySelector('[data-action="close-lightbox"]');
+
+closeBtn.addEventListener("click", closeModal);
+
+//Очистка значения атрибута src элемента img.lightbox__image. Это необходимо для того,
+//чтобы при следующем открытии модального окна, пока грузится изображение, мы не видели предыдущее.//
