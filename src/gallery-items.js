@@ -87,13 +87,23 @@ console.log(resultHtml);
 
 ulElements.insertAdjacentHTML("beforeend", resultHtml.join(""));
 
+//Открытие модального окна по клику на элементе галереи.//
+
+const openModal = (imageSrc) => {
+  document.querySelector(".lightbox").classList.add("is-open");
+  document.querySelector(".lightbox__image").src = imageSrc;
+};
+
 //Реализация делегирования на галерее ul.js-gallery и получение url большого изображения.//
 
-ulElements.addEventListener("click", ulContainerClick);
-function ulContainerClick(event) {
-  event.preventDefault();
+const ulContainerClick = (event) => {
   if (!event.target.classList.contains("gallery__image")) {
     return;
   }
-  console.log(event.target);
-}
+  event.preventDefault();
+  openModal(event.target.getAttribute("data-source"));
+};
+
+ulElements.addEventListener("click", ulContainerClick);
+
+//Закрытие модального окна по клику на кнопку button[data-action="close-lightbox"].
